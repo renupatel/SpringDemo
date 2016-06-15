@@ -1,0 +1,16 @@
+<struts-config>
+
+<form-beans>
+
+<form-bean name="HF" type="beans.FormBackup" />
+
+</form-beans>
+
+<action-mappings>
+<action path="/hello" name="HF"  input="/index.jsp" type="beans.HelloController">
+<forward name="success" path="/sucess.jsp" />
+</action>
+</action-mappings>
+
+<message-resources parameters="beans/Msg" />
+</struts-config>
