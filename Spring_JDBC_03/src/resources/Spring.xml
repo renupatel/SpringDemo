@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+
+
+
+<!-- if scope is prototype then class isn't created while loading the xml -->
+<!-- 
+<bean id="con" class="com.jdbc.test.Con2"  >
+<property name="driver" value="oracle.jdbc.OracleDriver"></property>
+<property name="url" value="jdbc:oracle:thin:@localhost:1521:test"></property>
+<property name="userName" value="system"></property>
+<property name="pwd" value="Renuka15"></property>
+</bean>
+ -->
+<!-- DI using Properties file -->
+
+<bean  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"  >
+<property name="location" value="/JDBC.properties"></property>
+</bean>
+
+
+<bean id="con" class="com.jdbc.test.Con2" >
+<property name="driver"  value="${driver}" />
+<property name="url"   value="${url}" />
+<property name="userName"  value="${userName}" />
+<property name="pwd"   value="${pwd}" />
+</bean>
+
+ 
+
+
+</beans>
+	
+			
